@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Magic Pages</title>
+    <link rel="stylesheet" type="text/css" href="linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap';">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=IBM+Plex+Mono:wght@300&family=Libre+Baskerville:wght@700&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" id="preloader-css" type="text/css" href="./css/preloader.css">
+<script src="./js/helpers/preloader.js"></script>
+</head>
+<body>
+
+<div class="preloader hidden"></div>
+
+<!-- start controls -->
+<div id="controls-container" class="controls" data-id="controls">
+<div class="toolbar-main">
+
+    <button class="search-type" data-type="fields"><i title="Add Fields" class="btn active fa-sharp fa-solid fa-book"></i></button>
+    <button class="search-type" data-type="media"><i title="Add Media" class="btn fa-sharp fa-solid fa-image"></i></button>
+    <button class="search-type" data-type="tools"><i title="Adjust Page" class="btn fa-sharp fa-solid fa-tools"></i></button>
+    <button class="view-change" data-type="view"><i title="Toggle View" class="fa-sharp fa-solid fa-eye"></i></button>
+    <!--
+    <i data-type="map" class="fa-sharp fa-solid fa-map"></i>
+    <i data-type="broadcast" class="fa-sharp fa-solid fa-podcast"></i>
+  -->
+</div>
+<textarea id="data-input" rows="1" placeholder="Start typing fields"></textarea>
+  <div class="numSelected-container hidden">
+    <span class="caption">selected: </span><span class="numSelected"></span>
+  </div>
+<ul id="dropdown-menu"></ul>
+</div>
+<!-- end controls -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+<script type="text/javascript" src="./js/loader.js"></script>
+
+</body>
+</html>
