@@ -26,6 +26,7 @@ const unsplashQueryPrompts = ['trending', 'amazing', 'beautiful', 'professional'
     input: [
       { class: 'fas fa-retweet', key: 'event-input-reload' },
       { class: 'fas fa-copy', key: 'event-input-copy' },
+      { class: 'fa-solid fa-trash', key: 'event-image-delete' },
       { class: 'fas fa-comment-dots', key: 'event-input-comment' }
     ],
     image: [
@@ -58,7 +59,51 @@ const unsplashQueryPrompts = ['trending', 'amazing', 'beautiful', 'professional'
 
   const primaryMenuItems = ['input', 'image', 'placeholder'];
 
-  const autoColorsList = ['#BDA784', '#F9AA7B', '#694D24', '#7688A1', '#525174', '#000000'];
+  const autoColorsList = ['#BDA784', '#F9AA7B', '#694D24', '#7688A1', '#525174', '#000000',   
+  '#FF3E55', // Coral Red
+  '#FFAC41', // Tangerine
+  '#FF4081', // Electric Pink
+  '#9C27B0', // Purple Heart
+  '#673AB7', // Deep Purple
+  '#3F51B5', // Royal Blue
+  '#03A9F4', // Dodger Blue
+  '#00BCD4', // Cyan Blue
+  '#009688', // Teal
+  '#4CAF50', // Emerald Green
+  '#8BC34A', // Lime Green
+  '#CDDC39', // Lime Yellow
+  '#FFEB3B', // Yellow
+  '#FFC107', // Amber
+  '#FF5722', // Deep Orange
+  '#795548', // Brown
+  '#9E9E9E', // Gray
+  '#607D8B', // Blue Gray
+  '#E91E63', // Pink
+  '#9C27B0', // Purple Heart
+  '#673AB7', // Deep Purple
+  '#3F51B5', // Royal Blue
+  '#2196F3', // Blue
+  '#03A9F4', // Dodger Blue
+  '#00BCD4', // Cyan Blue
+  '#009688', // Teal
+  '#4CAF50', // Emerald Green
+  '#8BC34A', // Lime Green
+  '#CDDC39', // Lime Yellow
+  '#FFEB3B', // Yellow
+  '#FFC107', // Amber
+  '#FF9800', // Orange
+  '#FF5722', // Deep Orange
+  '#795548', // Brown
+  '#9E9E9E', // Gray
+  '#607D8B', // Blue Gray
+  '#E91E63', // Pink
+  '#9C27B0', // Purple Heart
+  '#673AB7', // Deep Purple
+  '#3F51B5', // Royal Blue
+  '#2196F3', // Blue
+  '#03A9F4', // Dodger Blue
+  '#00BCD4' // Cyan Blue
+  ];
 
 function handleColorChange(event){
   const color = event.target.value;
@@ -100,7 +145,7 @@ function addToolTip(event, key) {
   container.appendChild(tooltip);
   positionTooltip(tooltip, container, event.clientX, event.clientY);
   tooltip.classList.add('show');
-  if (key === 'placeholder' || key === 'image' || key === 'input') {
+  if (key === 'placeholder' || key === 'image') {
     currentTooltip = tooltip;
   } else {
     currentSubTooltip = tooltip;
@@ -148,13 +193,17 @@ function handleBtnClick(event) {
   event.stopPropagation();
   const key = event.currentTarget.dataset.key;
   
-  if (key === 'placeholder' || key === 'image') {
+  if (key === 'placeholder' || key === 'image' || key === 'input') {
     if (currentSubTooltip) {
       currentSubTooltip.remove();
       currentSubTooltip = null;
     }
   } else {
-    clearSubTooltip(currentSubTooltip, key);
+    console.log("e", event.currentTarget);
+    console.log("k", key);
+    if(key !== 'event-background-color'){
+      clearSubTooltip(currentSubTooltip, key);
+    }
     handleEvent(event, key);
     addToolTip(event, key);
   }
@@ -200,8 +249,14 @@ function changeBackgroundColor(){
 function deleteActiveImage(){
   clearTooltip(activeElement);
   const container = activeElement.closest('div');
+  const label = activeElement.closest('label');
   activeElement.remove();
-  container.remove();
+  if(container){
+    container.remove();
+  }
+  if(label){
+    label.remove();
+  }
 }
 
 function duplicateActiveImage(){

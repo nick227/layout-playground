@@ -269,7 +269,6 @@ button.view-change. button.view-change:hover, button.view-change:active{
 }
 .resizable input{
     width: 99%;
-    height: 99%;
 }
 .resizable img.full{
     width: 100%;

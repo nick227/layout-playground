@@ -196,6 +196,5 @@ function createLabelElement(text, fieldElement, key) {
   labelElement.dataset.key = key
   
   labelElement.appendChild(fieldElement);
-  labelElement.appendChild(createCloseButton());
   return labelElement;
 }
